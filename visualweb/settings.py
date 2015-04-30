@@ -25,7 +25,23 @@ SECRET_KEY = 'e=u^qudz*v!)^jf3$6f6ghpf!%%r29y$3f7(pn%z(4**$q+g$y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME' : 'poll',
+        'USER' : 'root',
+        'HOST' : 'localhost',
+        'PASSWORD' : '123456',
+        'PORT' : '3306'
+    }
+}
+
 
 
 # Application definition
@@ -37,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'poll',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +72,7 @@ ROOT_URLCONF = 'visualweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,17 +86,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'visualweb.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Internationalization
