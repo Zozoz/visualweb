@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^upload/', include('upload.urls', namespace='upload')),
     url(r'^poll/', include('poll.urls', namespace='poll')),
     url(r'^algorithm/', include('algorithm.urls', namespace='algorithm')),
+    url(r'^poj/', include('poj.urls', namespace='poj')),
     url(r'^admin/', include(admin.site.urls)),
 ]

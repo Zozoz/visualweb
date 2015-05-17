@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Recommend Success {% endblock %}
+{% block css %}
+<style>
+    h2, p {
+        color: black;
+        text-align: center;
+    }
+    p {
+        font-size: 25px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container" style="width: 100%; color: black;">
+    <h2>Recommend Problem</h2>
+    <p>{{ username }}:</p>
+    <p>{{ problem }}</p>
+</div>
+
+
+{% endblock%}

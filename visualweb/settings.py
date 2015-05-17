@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'poll',
     'upload',
     'algorithm',
+    'poj',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Poj Recommend {% endblock %}
+{% block css %}
+<style>
+    div, a {
+        color: black;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h2 style="text-align: center;">Poj Problem Recommendation</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Username</th>
+            </tr>
+        </thead>
+        {% if username %}
+        <tbody>
+        {% for row in username %}
+            <tr>
+                <td><a href="{% url 'poj:detail' row %}">{{ row }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+{% endblock %}
