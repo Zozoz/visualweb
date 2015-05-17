@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %} Algorithm Home {% endblock %}
+{% block css %}
+<style>
+    div {
+        color: black;
+    }
+    option {
+        font-size: 40px;
+    }
+    #submit {
+        max-width: 200px;
+        padding-top:17%;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <form class="form-horizontal" action="/algorithm/" method="POST">
+        {% csrf_token %}
+        <h1 class="text-center">Select your Algorithm</h1>
+        <br/>
+        <div id="al_info" class="col-sm-9">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">ALgorithm</label>
+                <div class="col-sm-5">
+                    <select id="algorithm" name="algorithm" class="form-control">
+                        <option>Apriori</option>
+                        <option>FPGrowth</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">minSupport</label>
+                <div class="col-sm-5">
+                    <!--  <input type="text" class="form-control" id="al_sup" name="al_sup" placeholder="0.0~1.0"/> -->
+                    {{ form.minSupport }}
+                    {{ form.minSupport.errors }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">minConfidenct</label>
+                <div class="col-sm-5">
+                    <!-- <input type="text" class="form-control" id="al_conf" name="al_conf" placeholder="0.0~1.0"/>-->
+                    {{ form.minConfidence }}
+                    {{ form.minConfidence.errors }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label">DataFile</label>
+                <div class="col-sm-5 radio">
+                    <select id="datafile" name="datafile" class="form-control">
+                        {% if documents %}
+                        {% for document in documents %}
+                        <option>{{ document.docfile.name }}</option>
+                        {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+            <div>
+                <div class="row center-block" id="submit">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" style="color: black; background: #090;">Submit</button>
+                </div>
+            </div>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block css %}
+<style>
+    p {
+        font-size: 30px;
+        color: black;
+        margin-top: 20px;
+    }
+    li {
+        font-size: 15px;
+        color: black;
+        margin-top: 10px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <p>Welcome to our recommend system paltform!</p>
+    <p>What can you do in this website?</p>
+    <ul>
+        <li>Upload your file.</li>
+        <li>Select your recommending algorithm.</li>
+        <li>Select your parameter.</li>
+        <li>Get your recommending results.</li>
+    </ul>
+
+</div>
+
+
+{% endblock %}

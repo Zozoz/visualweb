@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %} upload {% endblock %}
+{% block content %}
+
+<div style="background: #0c0">
+{% if error_message  %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<div class="container" style="background: #0c0">
+    <div class="row">
+        {% if documents %}
+        <ul>
+        {% for document in documents %}
+        <div class="col-md-9 col-sm-9"><li style="color: black"><a href="{{ document.docfile.url }}" style="color: black">{{ document.docfile.name }}</a></li></div>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <div class="col-md-9 col-sm-9"><p>No documents.</p></div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div class="container" style="font-size: 20px">
+<form action="{% url 'upload:upload' %}" method="post" enctype="multipart/form-data" class="form-horizontal">
+    {% csrf_token %}
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-9 col-sm-9">
+                <div>{{ form.non_field_errors }}</div>
+            </div>
+        </div>
+        <div class="form-group" style="color: black">
+            <div class="col-md-9 col-sm-9">
+                <div>{{ form.docfile.label_tag }}{{ form.docfile.help_text }}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-9 col-sm-9">
+                <div>{{ form.docfile.errors }}</div>
+                <div>{{ form.docfile }}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6">
+                <div><button type="submit" class="btn btn-primary" style="background: black; color: #090">Upload</button></div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+
+
+</div>
+
+{% endblock %}

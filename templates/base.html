@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--For IE-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %}-Recommend System</title>
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>-->
+	<link rel="stylesheet" href="/static/base/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/base/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/base/css/templatemo_style.css">
+    <!-- JavaScripts -->
+	<script src="/static/base/js/jquery-2.1.4.min.js"></script>
+    {% block css %}{% endblock css %}
+  </head>
+  <body style="background: #090">
+  <!-- title start -->
+  	<div class="container" style="background: #9f9; width: 100%;">
+    	<div class="row">
+        	<div class="col-lg-6 col-md-6 col-sm-6">
+            	<div class="templatemo_title"><a href="/">Recommend System</a></div>
+                <div class="templatemo_subtitle">based on association rules</div>
+            </div>
+            <!--
+            <div class="col-md-6 col-sm-6">
+            	<form id="search_form">
+            		<div class="templatemo_search">
+                    	<input name="search" type="text" placeholder="" id="search">
+                    </div>
+                </form>
+            </div>
+            -->
+        </div>
+    </div>
+  <!-- title end -->
+  	<div class="site-header" style="background: #6f6;">
+		<div class="main-navigation">
+			<div class="container">
+				<div class="row">
+                     <div class="col-md-12 navigation">
+						<div class="row main_menu">
+                    		<div class="col-md-2"><a id="prev"></a></div>
+							<div class="col-md-2"><a class="show-1 templatemo_home" href="/"><div class="fa fa-home"></div></a></div>
+							<div class="col-md-2"><a class="show-2 templatemo_page2" href="/algorithm"><div class="fa fa-adn"></div></a></div>
+							<div class="col-md-2"><a class="show-3 templatemo_page3" href="/upload"><div class="fa fa-upload"></div></a></div>
+							<div class="col-md-2"><a class="show-5 templatemo_page5" href="#"><div class="fa fa-phone"></div></a></div>
+                            <div class="col-md-2"><a id="next"></a></div>
+						</div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+    {% block content %}{% endblock %}
+	<!-- footer start -->
+		<div class="templatemo_footer" style="margin-top: 370px;">
+            <div class="container">
+            	<div class="row">
+                	<div class="col-md-12">
+                        <a href="http://www.zhengshiliang.com/" target="_blank">©版权所有 2015-3015,Newbie,保留一切权利</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- footer end -->
+
+  </body>
+
+</html>

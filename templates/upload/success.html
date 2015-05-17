@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} success {% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <p>Upload successed!</p>
+        <p><a href="{% url 'upload:upload' %}">click to back</a></p>
+    </div>
+
+</div>
+
+{% endblock %}

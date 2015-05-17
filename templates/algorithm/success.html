@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %} Recommend Success {% endblock %}
+{% block css %}
+<style>
+    h2, h3 {
+        color: black;
+        text-align: center;
+    }
+    th, td {
+        text-align: center;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3>Algorithm: {{ algorithm }}</h3>
+    <h3>minSupport: {{ minS }}</h3>
+    <h3>minConfidence: {{ minC }}</h3>
+    <h3>datafile: {{ datafile }}</h3>
+</div>
+
+<div class="container" style="background: #e49d00; width: 100%; color: black;">
+    <h2>Frequent Item</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>freqitem</th>
+            </tr>
+        </thead>
+        {% if freq %}
+        <tbody>
+        {% for item in freq %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+<div class="container" style="width: 100%; color: black;">
+    <h2>Association Rules</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>From</th>
+                <th>To</th>
+                <th>confidence</th>
+            </tr>
+        </thead>
+        {% if rules %}
+        <tbody>
+        {% for rule in rules %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                {% for item in rule %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+
+{% endblock%}

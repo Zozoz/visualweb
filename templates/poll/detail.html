@@ -1,6 +1,24 @@
+{% extends "base.html" %}
+{% block title %}detail{% endblock %}
+{% block content %}
 <h1>{{ question.question_text }}</h1>
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
-{% endfor %}
-</ul>
+
+{% if error_message  %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<div class="container">
+<form action="{% url 'poll:vote' question.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+    <div class="row">
+        <div class="col-md-1 col-sm-1">
+            <div><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/></div>
+        </div>
+        <div class="col-md-1 col-sm-1">
+            <div><label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></div>
+        </div>
+    </div>
+    {% endfor %}
+    <input type="submit" value="vote">
+</form>
+</div>
+{% endblock %}
