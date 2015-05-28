@@ -1,0 +1,9 @@
+zsl: milk egg bread chips
+slz: egg popcorn chips beer
+aaa: egg bread chips
+bbb: milk egg bread popcorn chips beer
+ccc: milk bread beer
+ddd: egg bread beer
+eee: milk bread chips
+fff: milk egg bread butter chips
+ppp: milk egg butter chips

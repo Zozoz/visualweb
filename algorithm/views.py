@@ -12,6 +12,7 @@ def show(request):
         print form
         if form.is_valid():
             algorithm = form.cleaned_data['algorithm']
+            algorithm = 'apriori'
             minSupport = form.cleaned_data['minSupport']
             minConfidence = form.cleaned_data['minConfidence']
             datafile = form.cleaned_data['datafile']
@@ -24,11 +25,18 @@ def show(request):
                 freq.append(line)
             fp.close()
             print freq
-            fp =open(path + 'rules.data', 'r')
+            fp = open(path + 'rules.data', 'r')
             rules = []
             for line in fp:
                 line = line.split('; ')
                 rules.append(line)
+            fp.close()
+            data = ''
+            with open('media/' + datafile, 'r') as f:
+                for line in f:
+                    data += (line + ';')
+            data = data.split(';')[:-1]
+            print data
             return render(request, 'algorithm/success.html',
                     {
                         'algorithm': algorithm,
@@ -37,6 +45,7 @@ def show(request):
                         'datafile': datafile,
                         'freq': freq,
                         'rules': rules,
+                        'data': data,
                     }
             )
     else:

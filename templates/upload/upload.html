@@ -11,7 +11,8 @@
         {% if documents %}
         <ul>
         {% for document in documents %}
-        <div class="col-md-9 col-sm-9"><li style="color: black"><a href="{{ document.docfile.url }}" style="color: black">{{ document.docfile.name }}</a></li></div>
+        <td class="col-md-9 col-sm-9"><li style="color: black">{{ document.docfile.name }}</li></td>
+        <!--<td>{{ document.datetime }}</td>-->
         {% endfor %}
         </ul>
         {% else %}

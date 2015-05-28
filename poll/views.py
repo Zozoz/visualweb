@@ -1,13 +1,34 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, render_to_response
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
+from django.template import Template, Context
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import MySQLdb
 
 from .models import Question, Choice
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list' : latest_question_list}
-    return render(request, 'poll/index.html', context)
+    return render(request, 'poll/css.html', context)
+
+
+def listing(request):
+    question_list = Question.objects.all()
+    paginator = Paginator(question_list, 1)
+
+    page = request.GET.get('page')
+    try:
+        questions = paginator.page(page)
+    except PageNotAnInteger:
+        questions = paginator.page(1)
+    except EmptyPage:
+        questions = paginator.page(paginator.num_pages)
+
+    return render_to_response('poll/listing.html', {"questions": questions})
+
+
+
 
 
 def detail(request, question_id):

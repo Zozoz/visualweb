@@ -14,11 +14,28 @@
 {% block content %}
 
 <div class="container">
-    <h3>Algorithm: {{ algorithm }}</h3>
+    <h3>algorithm: {{ algorithm }}</h3>
     <h3>minSupport: {{ minS }}</h3>
     <h3>minConfidence: {{ minC }}</h3>
     <h3>datafile: {{ datafile }}</h3>
 </div>
+
+<div class="container" style="background: #658861; width: 100%; color: black;">
+    <h2>Data Source</h2>
+    <table class="table table-hover">
+        {% if data %}
+        <tbody>
+        {% for item in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
 
 <div class="container" style="background: #e49d00; width: 100%; color: black;">
     <h2>Frequent Item</h2>
@@ -26,7 +43,7 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>freqitem</th>
+               <th>freqitem</th>
             </tr>
         </thead>
         {% if freq %}

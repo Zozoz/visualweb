@@ -52,6 +52,8 @@ def getPoj(filename):
     dataItemSet = []
     with open(filename, 'r') as f:
         for line in f:
+            if line == '' or line == '\n' or line == '\r\n':
+                break
             cnt += 1
             print cnt
             line = line.split(' ')[1:]

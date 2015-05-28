@@ -12,4 +12,5 @@ urlpatterns = [
         url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
         url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
         url(r'^base/$', views.base, name='base'),
+        url(r'^list/$', views.listing, name="listing"),
         ]
