@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^poll/', include('poll.urls', namespace='poll')),
     url(r'^algorithm/', include('algorithm.urls', namespace='algorithm')),
     url(r'^poj/', include('poj.urls', namespace='poj')),
+    url(r'^wangyi/', include('wangyi.urls', namespace='wangyi')),
     url(r'^admin/', include(admin.site.urls)),
 ]

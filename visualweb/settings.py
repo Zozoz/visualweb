@@ -34,7 +34,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME' : 'poll',
+        'NAME' : 'wangyi',
         'USER' : 'root',
         'HOST' : 'localhost',
         'PASSWORD' : '123456',
@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'upload',
     'algorithm',
     'poj',
+    'wangyi',
 )
 
 MIDDLEWARE_CLASSES = (

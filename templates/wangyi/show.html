@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %} Poj Recommend {% endblock %}
+{% block css %}
+<style>
+    div, a {
+        color: black;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 style="text-align: center;">网易新闻推荐</h1>
+    <h2 style="text-align: center;">头条</h2>
+    <table class="table table-hover;">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        {% if toutiaos %}
+        <tbody>
+        {% for article in toutiaos %}
+            <tr>
+                <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+                <td><a href="{{ article.comments_url }}">{{ article.comments_number }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+<div class="container">
+    <h2 style="text-align: center;">娱乐</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        {% if yules %}
+        <tbody>
+        {% for article in yules %}
+            <tr>
+                <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+                <td><a href="{{ article.comments_url }}">{{ article.comments_number }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+<div class="container">
+    <h2 style="text-align: center;">体育</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        {% if tiyus %}
+        <tbody>
+        {% for article in tiyus %}
+            <tr>
+                <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+                <td><a href="{{ article.comments_url }}">{{ article.comments_number }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+<div class="container">
+    <h2 style="text-align: center;">财经</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        {% if caijings %}
+        <tbody>
+        {% for article in caijings %}
+            <tr>
+                <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+                <td><a href="{{ article.comments_url }}">{{ article.comments_number }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+<div class="container">
+    <h2 style="text-align: center;">军事</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        {% if junshis %}
+        <tbody>
+        {% for article in junshis %}
+            <tr>
+                <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+                <td><a href="{{ article.comments_url }}">{{ article.comments_number }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
